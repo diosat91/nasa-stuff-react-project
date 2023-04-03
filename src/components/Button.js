@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 
-export default class PlayButton extends Component {
-
+export default class Button extends Component {
   render() {
-
     return (
       <div className="buttoncontainer">
-        <button onClick={e => this.props.showGame(e)}>Play!</button>
+        <button>{this.props.type}</button>
       </div>
     );
   }

@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-
-import SearchButton from '../components/SearchButton'
-import PlayButton from '../components/PlayButton'
-
+import Button from '../components/Button'
 
 export default class MainContainer extends Component {
-
-
   render() {
     return(
       <div>
-        <Link to="/search"><SearchButton /></Link>
-        <Link to="/game"><PlayButton /></Link>
-
+        <Link to="/search"><Button type='Search'></Button></Link>
+        <Link to="/game"><Button type='Play'></Button></Link>
       </div>
     )
   }
-
-
 }
