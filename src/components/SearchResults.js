@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
-
 import moon from './moon.jpg'
 
-
 class SearchResults extends Component {
-
   state = {
     images: []
   }
-
-  //The component has loaded and the functions are called - was using this before but not currently
-    componentDidMount(){
-    }
 
   //this function helps when presenting the cards - if the title and description are the same, it doesn't show the description
     sameContent = (a, b) => {
@@ -42,7 +34,7 @@ class SearchResults extends Component {
     };
 
   // This determines the HTML to render and the card structure, mapping the images from the state onto each card
-    getResults = (images) => {
+    getResults = () => {
       if (this.props.getResults.length > 0) {
         return this.props.getResults.map(image =>
           <div className="cardborder">
@@ -81,8 +73,6 @@ class SearchResults extends Component {
       </div>
     );
   };
-
-
 }
 
 export default SearchResults
