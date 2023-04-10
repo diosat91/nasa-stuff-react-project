@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-export default class PlayAgain extends Component {
-
-  reloadPage = () => {
+export default function PlayAgain () {
+  const reloadPage = () => {
     document.location.reload(true)
   }
 
-  render() {
-
-    return (
-      <div className="playagainbutton">
-        <button onClick={this.reloadPage}>Again!</button>
-        <Link to="/"><button className="back">Go Back</button></Link>
-      </div>
-    );
-  }
+  return (
+    <div className="playagainbutton">
+      <button onClick={reloadPage}>Again!</button>
+      <Link to="/"><button className="back">Go Back</button></Link>
+    </div>
+  );
 }
+

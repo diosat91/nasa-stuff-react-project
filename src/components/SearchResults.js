@@ -1,7 +1,7 @@
 import React from 'react';
 import moon from './../images/moon.jpg'
 
-function SearchResults(props) {
+export default function SearchResults(props) {
   //this function helps when presenting the cards - if the title and description are the same, it doesn't show the description
   const sameContent = (a, b) => {
     if (a === b) {
@@ -67,5 +67,3 @@ function SearchResults(props) {
     </div>
   )
 }
-
-export default SearchResults

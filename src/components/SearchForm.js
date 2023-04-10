@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function SearchForm(props) {
+export default function SearchForm(props) {
   const [query, setQuery] = useState("");
 
   const handleSubmit = event => {
@@ -23,5 +23,3 @@ function SearchForm(props) {
     </div>
   )
 }
-
-export default SearchForm

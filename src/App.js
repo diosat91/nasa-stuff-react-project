@@ -8,7 +8,7 @@ import './App.css';
 import Header from './containers/Header'
 import MainContainer from './containers/MainContainer'
 
-function App() {
+export default function App() {
   const [images, setImages] = useState([]);
 
   //The NASA API is called and then the results go to the state
@@ -39,5 +39,3 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App;
