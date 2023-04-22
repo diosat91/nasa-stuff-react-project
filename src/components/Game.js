@@ -2,32 +2,28 @@ import React, { useState, useEffect, useCallback } from 'react';
 import $ from 'jquery'
 
 import PlayAgain from './PlayAgain'
+import NasaApiCall from '../services/NasaApiCall'
 
 export default function Game() {
+  const getGameImage = useCallback(async () => {
+    const spaceSearch = ["moon", "earth", "jupiter", "saturn", "pluto", "mars", "venus"]
+    let randomSearchItem = spaceSearch[Math.floor(Math.random()*spaceSearch.length)]
+    let randomNumber = Math.floor(Math.random() * 100) + 1
+
+    // limit wont work here because results are always the same
+    NasaApiCall(randomSearchItem)
+    .then(items => {
+      setImage(items[randomNumber].links[0].href)
+      setItem(randomSearchItem)
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }, []);
+
   useEffect(() => {
     getGameImage();
   }, [getGameImage]);
-
-  const getGameImage = useCallback(async () => {
-    const spaceSearch = ["moon", "earth", "jupiter", "saturn", "pluto", "mars", "venus"]
-    let randomSearchItem = spaceSearch[Math.floor(Math.random()*spaceSearch.length)];
-    let oneHundred = [];
-    for (let i = 0; i <= 100; i++) {
-      oneHundred.push(i);
-    }
-    let randomNumber = oneHundred[Math.floor(Math.random()*oneHundred.length)]
-
-    const url = "https://images-api.nasa.gov/search?q="
-
-    $.ajax({
-      url: url + randomSearchItem,
-      type: "GET",
-      dataType : "json",
-    }).then(json => {
-      setImage(json.collection.items[randomNumber].links[0].href)
-      setItem(randomSearchItem)
-    })
-  }, []);
 
   const [image, setImage] = useState("")
   const [item, setItem] = useState("")

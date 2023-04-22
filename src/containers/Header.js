@@ -9,7 +9,7 @@ const Header = () => {
         <div className="emily"><a href="https://emilyjennings.github.io">An App Made by Emily</a></div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Header
